@@ -7,13 +7,16 @@ import { MessageSquare, Send, Bot, User, Minimize2 } from 'lucide-react'
 import { useChat, Message } from '@ai-sdk/react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-
+import { useLanguage } from '@/components/LanguageProvider'
 
 export default function ChatWidget() {
+  const { t, language } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
 
-  const { messages, sendMessage, status, error } = useChat()
+  const { messages, sendMessage, status, error } = useChat({
+    body: { language }
+  })
   const isLoading = status === 'submitted' || status === 'streaming'
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -42,7 +45,7 @@ export default function ChatWidget() {
         transition={{ delay: 2.5, duration: 0.7 }}
         whileHover={{ scale: 1.05 }}
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-24 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#141414] border border-emerald-500/30 text-emerald-400 shadow-2xl shadow-emerald-500/20 hover:bg-emerald-500/10 transition-colors ${isOpen ? 'hidden' : 'flex'}`}
+        className={`fixed bottom-24 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-white border border-emerald-500/30 text-emerald-600 shadow-2xl shadow-emerald-500/20 hover:bg-emerald-600/10 transition-colors ${isOpen ? 'hidden' : 'flex'}`}
       >
         <MessageSquare className="w-6 h-6" />
       </motion.button>
@@ -55,25 +58,25 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[400px] h-[500px] max-h-[80vh] flex flex-col bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[400px] h-[500px] max-h-[80vh] flex flex-col bg-slate-50 border border-slate-900/10 rounded-2xl shadow-2xl overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 bg-[#141414] border-b border-white/5">
+            <div className="flex items-center justify-between px-5 py-4 bg-white border-b border-slate-900/5">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
-                  <Bot className="w-4 h-4 text-emerald-400" />
+                <div className="w-8 h-8 rounded-full bg-emerald-600/20 flex items-center justify-center border border-emerald-500/30">
+                  <Bot className="w-4 h-4 text-emerald-600" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white">AI Assistant</h3>
+                  <h3 className="text-sm font-semibold text-slate-900">{t.chat.assistantLabel}</h3>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span className="text-[10px] text-white/50 uppercase tracking-widest">Online</span>
+                    <span className="text-[10px] text-slate-900/50 uppercase tracking-widest">{t.chat.online}</span>
                   </div>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-lg hover:bg-white/5 text-white/50 hover:text-white transition"
+                className="p-2 rounded-lg hover:bg-slate-900/5 text-slate-900/50 hover:text-slate-900 transition"
               >
                 <Minimize2 className="w-4 h-4" />
               </button>
@@ -83,10 +86,10 @@ export default function ChatWidget() {
             <div className="flex-1 overflow-y-auto p-5 space-y-4 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
               {messages.map((m: Message) => (
                 <div key={m.id} className={`flex items-start gap-3 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}>
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${m.role === 'user' ? 'bg-emerald-500 text-black' : 'bg-[#1a1a1a] border border-white/10 text-emerald-400'}`}>
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${m.role === 'user' ? 'bg-emerald-600 text-white' : 'bg-slate-100 border border-slate-900/10 text-emerald-600'}`}>
                     {m.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
                   </div>
-                  <div className={`max-w-[75%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${m.role === 'user' ? 'bg-emerald-500 text-black rounded-tr-sm' : 'bg-[#141414] border border-white/5 text-white/80 rounded-tl-sm'}`}>
+                  <div className={`max-w-[75%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${m.role === 'user' ? 'bg-emerald-600 text-white rounded-tr-sm' : 'bg-white border border-slate-900/5 text-slate-900/80 rounded-tl-sm'}`}>
                     {m.parts && m.parts.length > 0 ? (
                       m.parts.map((part, i) => (
                         part.type === 'text' ? (
@@ -130,16 +133,16 @@ export default function ChatWidget() {
               {error && (
                 <div className="flex justify-center my-2">
                   <span className="text-xs text-red-400 bg-red-400/10 px-3 py-1 rounded-full border border-red-400/20">
-                    Error: {error.message || "Gagal menghubungi server"}
+                    Error: {error.message || t.chat.error}
                   </span>
                 </div>
               )}
               {isLoading && (
                 <div className="flex items-start gap-3">
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 bg-[#1a1a1a] border border-white/10 text-emerald-400">
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 bg-slate-100 border border-slate-900/10 text-emerald-600">
                     <Bot className="w-4 h-4" />
                   </div>
-                  <div className="bg-[#141414] border border-white/5 rounded-2xl rounded-tl-sm px-4 py-3 flex items-center gap-1.5">
+                  <div className="bg-white border border-slate-900/5 rounded-2xl rounded-tl-sm px-4 py-3 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/50 animate-bounce"></span>
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/50 animate-bounce delay-150"></span>
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/50 animate-bounce delay-300"></span>
@@ -150,19 +153,19 @@ export default function ChatWidget() {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 bg-[#141414] border-t border-white/5">
+            <div className="p-4 bg-white border-t border-slate-900/5">
               <form onSubmit={handleFormSubmit} className="flex items-center gap-2 relative">
                 <input
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ketik pertanyaan Anda..."
-                  className="w-full bg-[#0a0a0a] border border-white/10 rounded-full pl-4 pr-12 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-emerald-500/50 transition-colors"
+                  placeholder={t.chat.placeholder}
+                  className="w-full bg-slate-50 border border-slate-900/10 rounded-full pl-4 pr-12 py-3 text-sm text-slate-900 placeholder-white/30 focus:outline-none focus:border-emerald-500/50 transition-colors"
                 />
                 <button
                   type="submit"
                   disabled={isLoading || !inputValue.trim()}
-                  className="absolute right-2 p-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black disabled:opacity-50 disabled:hover:bg-emerald-500 transition-colors"
+                  className="absolute right-2 p-2 rounded-full bg-emerald-600 hover:bg-emerald-400 text-white disabled:opacity-50 disabled:hover:bg-emerald-600 transition-colors"
                 >
                   <Send className="w-4 h-4" />
                 </button>

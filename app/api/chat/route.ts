@@ -6,7 +6,11 @@ export const maxDuration = 30;
 
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
+    const { messages, language } = await req.json();
+
+    const systemLangInstruction = language === 'en'
+      ? '\n\nIMPORTANT: You MUST answer strictly in English language.'
+      : '\n\nPENTING: Anda HARUS membalas dengan menggunakan bahasa Indonesia.';
 
     const result = streamText({
       model: google('gemini-3.5-flash'),
@@ -23,15 +27,14 @@ Informasi Produk Utama - Hybrid Generator Booster:
 
 Sektor yang dilayani meliputi: Manufaktur, Perkantoran, Pergudangan, Maritim, Hospitality (Hotel), dan Telekomunikasi.
 Kontak Perusahaan: 
-- Telepon/WA: 082231051532
+- Telepon/WA: 082244410345
 - Email: [EMAIL_ADDRESS]
 - Lokasi: Sidoarjo, Jawa Timur — Indonesia
 
 Panduan Menjawab:
 - Jawab secara ringkas, elegan, dan langsung pada intinya. 
 - Jika pengguna bertanya harga spesifik atau ingin membeli, arahkan mereka untuk menghubungi kontak WhatsApp/Email di atas untuk mendapatkan proposal dan penawaran terbaik.
-- Jangan gunakan bahasa yang terlalu kaku, tetap natural.
-- Gunakan bahasa Indonesia, kecuali pengguna menggunakan bahasa lain.`,
+- Jangan gunakan bahasa yang terlalu kaku, tetap natural.${systemLangInstruction}`,
       messages,
     });
 
