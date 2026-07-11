@@ -8,6 +8,7 @@ import {
     VolumeX, Leaf, Mail, Phone, MapPin, ChevronDown, Sparkles, ShieldCheck,
     Factory, Building2, Warehouse, Ship, Hotel, Radio
 } from 'lucide-react'
+import ChatWidget from '@/components/ChatWidget'
 
 const HERO_IMG = '/images/hero.jpg'
 const ABOUT_IMG = '/images/generator2.jpg'
@@ -659,6 +660,7 @@ const App = () => {
             <ProductSpotlight />
             <Footer />
             <FloatingCTA />
+            <ChatWidget />
         </main>
     )
 }

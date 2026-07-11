@@ -1,0 +1,23 @@
+
+> cvsahabatindo@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.20
+   - Local:        http://localhost:3005
+   - Network:      http://10.255.255.254:3005
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.5s
+ ○ Compiling /api/chat ...
+ ✓ Compiled /api/chat in 3.9s (424 modules)
+SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at async POST (app/api/chat/route.ts:8:24)
+   6 |
+   7 | export async function POST(req: Request) {
+>  8 |   const { messages } = await req.json();
+     |                        ^
+   9 |
+  10 |   const result = await streamText({
+  11 |     // @ts-ignore
