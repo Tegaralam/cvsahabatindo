@@ -580,7 +580,7 @@ function Footer() {
                             </div>
                             <ArrowUpRight className="w-5 h-5 text-white/30 group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
                         </a>
-                        <a href="tel:+6282231051532" className="group bg-[#141414] border border-white/10 rounded-2xl p-8 hover:border-emerald-400/40 transition flex items-center justify-between">
+                        <a href="https://wa.me/6282231051532" className="group bg-[#141414] border border-white/10 rounded-2xl p-8 hover:border-emerald-400/40 transition flex items-center justify-between">
                             <div>
                                 <div className="flex items-center gap-3 mb-3">
                                     <Phone className="w-4 h-4 text-emerald-400" />
