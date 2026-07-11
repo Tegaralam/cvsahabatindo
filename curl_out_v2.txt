@@ -1,0 +1,31 @@
+* Host localhost:3333 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:3333...
+* Connected to localhost (::1) port 3333
+> POST /api/chat HTTP/1.1
+> Host: localhost:3333
+> User-Agent: curl/8.5.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 57
+> 
+} [57 bytes data]
+< HTTP/1.1 200 OK
+< vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+< cache-control: no-cache
+< connection: keep-alive
+< content-type: text/event-stream
+< x-accel-buffering: no
+< x-vercel-ai-ui-message-stream: v1
+< Date: Sat, 11 Jul 2026 10:35:30 GMT
+< Transfer-Encoding: chunked
+< 
+{ [24 bytes data]
+* Connection #0 to host localhost left intact
+data: {"type":"start"}
+
+data: {"type":"error","errorText":"An error occurred."}
+
+data: [DONE]
+

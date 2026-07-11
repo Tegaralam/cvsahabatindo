@@ -13,13 +13,13 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
 
-  const { messages, sendMessage, status } = useChat()
+  const { messages, append, status } = useChat()
   const isLoading = status === 'submitted' || status === 'streaming'
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!inputValue.trim()) return
-    sendMessage({ text: inputValue })
+    append({ role: 'user', content: inputValue })
     setInputValue('')
   }
 

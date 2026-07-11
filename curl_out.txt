@@ -1,0 +1,40 @@
+* Host localhost:3000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:3000...
+* Connected to localhost (::1) port 3000
+> POST /api/chat HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/8.5.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 57
+> 
+} [57 bytes data]
+< HTTP/1.1 404 Not Found
+< Cache-Control: no-store, must-revalidate
+< X-Powered-By: Next.js
+< ETag: "gc11zvi16kcl"
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 453
+< Vary: Accept-Encoding
+< Date: Sat, 11 Jul 2026 10:29:31 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< 
+{ [453 bytes data]
+* Connection #0 to host localhost left intact
+
+              <pre>missing required error components, refreshing...</pre>
+              <script>
+                async function check() {
+                  const res = await fetch(location.href).catch(() => ({}))
+
+                  if (res.status === 200) {
+                    location.reload()
+                  } else {
+                    setTimeout(check, 1000)
+                  }
+                }
+                check()
+              </script>
