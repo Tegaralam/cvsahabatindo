@@ -8,10 +8,11 @@ import { useChat, Message } from '@ai-sdk/react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
+
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
-  
+
   const { messages, sendMessage, status } = useChat()
   const isLoading = status === 'submitted' || status === 'streaming'
 
@@ -70,7 +71,7 @@ export default function ChatWidget() {
                   </div>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="p-2 rounded-lg hover:bg-white/5 text-white/50 hover:text-white transition"
               >
@@ -89,15 +90,15 @@ export default function ChatWidget() {
                     {m.parts?.map((part, i) => (
                       part.type === 'text' ? (
                         <div key={i} className="text-sm">
-                          <ReactMarkdown 
+                          <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
                             components={{
-                              p: ({node, ...props}) => <p className="mb-2 last:mb-0" {...props} />,
-                              strong: ({node, ...props}) => <strong className="font-bold" {...props} />,
-                              ul: ({node, ...props}) => <ul className="list-disc pl-4 mb-2 space-y-1" {...props} />,
-                              ol: ({node, ...props}) => <ol className="list-decimal pl-4 mb-2 space-y-1" {...props} />,
-                              li: ({node, ...props}) => <li className="" {...props} />,
-                              a: ({node, ...props}) => <a className="underline hover:opacity-80" {...props} />
+                              p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+                              strong: ({ node, ...props }) => <strong className="font-bold" {...props} />,
+                              ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2 space-y-1" {...props} />,
+                              ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2 space-y-1" {...props} />,
+                              li: ({ node, ...props }) => <li className="" {...props} />,
+                              a: ({ node, ...props }) => <a className="underline hover:opacity-80" {...props} />
                             }}
                           >
                             {part.text}
