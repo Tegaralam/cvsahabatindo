@@ -19,6 +19,7 @@ function Counter({ from = 0, to, suffix = '', prefix = '', decimals = 0, duratio
     const inView = useInView(ref, { once: true, margin: '-80px' })
     const [display, setDisplay] = useState(from)
 
+
     useEffect(() => {
         if (!inView) return
         const controls = animate(from, to, {
