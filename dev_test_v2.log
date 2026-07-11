@@ -8,7 +8,7 @@
    - Environments: .env.local
 
  ✓ Starting...
- ✓ Ready in 2.4s
+ ✓ Ready in 2.9s
  ○ Compiling /api/chat ...
- ✓ Compiled /api/chat in 2.1s (424 modules)
- POST /api/chat 200 in 15645ms
+ ✓ Compiled /api/chat in 1743ms (424 modules)
+ POST /api/chat 200 in 9847ms

@@ -18,7 +18,7 @@
 < content-type: text/event-stream
 < x-accel-buffering: no
 < x-vercel-ai-ui-message-stream: v1
-< Date: Sat, 11 Jul 2026 11:12:08 GMT
+< Date: Sat, 11 Jul 2026 11:26:21 GMT
 < Transfer-Encoding: chunked
 < 
 { [24 bytes data]
@@ -29,15 +29,19 @@ data: {"type":"start-step"}
 
 data: {"type":"text-start","id":"0"}
 
-data: {"type":"text-delta","id":"0","delta":"Halo! Terima kasih telah menghubungi **CV. Sahabat Indo Sukses**. Layanan kami aktif dan siap membantu"}
+data: {"type":"text-delta","id":"0","delta":"Halo! Terima kasih telah menghubungi **CV. Sahabat Indo Sukses**. Layanan kami telah aktif dan siap membantu Anda."}
 
-data: {"type":"text-delta","id":"0","delta":" Anda.\n\nKami adalah penyedia solusi inovasi energi hijau asal Sidoarjo, Jawa Timur. Salah satu solusi unggulan"}
+data: {"type":"text-delta","id":"0","delta":"\n\nKami adalah penyedia solusi engineering inovasi energi hijau terpercaya yang berbasis di Sidoarjo, Jawa Timur. Produk unggulan kami"}
 
-data: {"type":"text-delta","id":"0","delta":" kami adalah **Hybrid Generator Booster**, yang dirancang khusus untuk membantu sektor industri menghemat biaya operasional solar dan mengurangi emisi gas buang hingga"}
+data: {"type":"text-delta","id":"0","delta":", **Hybrid Generator Booster**, dirancang khusus untuk membantu sektor industri (manufaktur, perkantoran, perkapalan, dll"}
 
-data: {"type":"text-delta","id":"0","delta":" **37%**.\n\nAda yang bisa kami bantu hari ini? Jika Anda ingin berkonsultasi mengenai kebutuhan energi industri Anda,"}
+data: {"type":"text-delta","id":"0","delta":".) menghemat biaya operasional solar minimal 37% dengan ROI kurang dari 1 tahun.\n\nAda yang bisa kami bantu hari"}
 
-data: {"type":"text-delta","id":"0","delta":" silakan beri tahu kami."}
+data: {"type":"text-delta","id":"0","delta":" ini? \n\nJika Anda ingin berkonsultasi mengenai efisiensi energi untuk bisnis Anda atau membutuhkan proposal penawaran resmi, Anda"}
+
+data: {"type":"text-delta","id":"0","delta":" juga dapat langsung menghubungi tim kami melalui WhatsApp di **+62 822-3105-1532**"}
+
+data: {"type":"text-delta","id":"0","delta":" atau email ke **cvsahabatindo@gmail.com**."}
 
 data: {"type":"text-end","id":"0"}
 

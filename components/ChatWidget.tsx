@@ -13,13 +13,13 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
 
-  const { messages, sendMessage, status } = useChat()
+  const { messages, sendMessage, status, error } = useChat()
   const isLoading = status === 'submitted' || status === 'streaming'
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!inputValue.trim()) return
-    sendMessage({ text: inputValue })
+    sendMessage({ role: 'user', content: inputValue })
     setInputValue('')
   }
 
@@ -87,28 +87,53 @@ export default function ChatWidget() {
                     {m.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
                   </div>
                   <div className={`max-w-[75%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${m.role === 'user' ? 'bg-emerald-500 text-black rounded-tr-sm' : 'bg-[#141414] border border-white/5 text-white/80 rounded-tl-sm'}`}>
-                    {m.parts?.map((part, i) => (
-                      part.type === 'text' ? (
-                        <div key={i} className="text-sm">
-                          <ReactMarkdown
-                            remarkPlugins={[remarkGfm]}
-                            components={{
-                              p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
-                              strong: ({ node, ...props }) => <strong className="font-bold" {...props} />,
-                              ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2 space-y-1" {...props} />,
-                              ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2 space-y-1" {...props} />,
-                              li: ({ node, ...props }) => <li className="" {...props} />,
-                              a: ({ node, ...props }) => <a className="underline hover:opacity-80" {...props} />
-                            }}
-                          >
-                            {part.text}
-                          </ReactMarkdown>
-                        </div>
-                      ) : null
-                    ))}
+                    {m.parts && m.parts.length > 0 ? (
+                      m.parts.map((part, i) => (
+                        part.type === 'text' ? (
+                          <div key={i} className="text-sm">
+                            <ReactMarkdown
+                              remarkPlugins={[remarkGfm]}
+                              components={{
+                                p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+                                strong: ({ node, ...props }) => <strong className="font-bold" {...props} />,
+                                ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2 space-y-1" {...props} />,
+                                ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2 space-y-1" {...props} />,
+                                li: ({ node, ...props }) => <li className="" {...props} />,
+                                a: ({ node, ...props }) => <a className="underline hover:opacity-80" {...props} />
+                              }}
+                            >
+                              {part.text}
+                            </ReactMarkdown>
+                          </div>
+                        ) : null
+                      ))
+                    ) : (
+                      <div className="text-sm">
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+                            strong: ({ node, ...props }) => <strong className="font-bold" {...props} />,
+                            ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2 space-y-1" {...props} />,
+                            ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2 space-y-1" {...props} />,
+                            li: ({ node, ...props }) => <li className="" {...props} />,
+                            a: ({ node, ...props }) => <a className="underline hover:opacity-80" {...props} />
+                          }}
+                        >
+                          {m.content}
+                        </ReactMarkdown>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
+              {error && (
+                <div className="flex justify-center my-2">
+                  <span className="text-xs text-red-400 bg-red-400/10 px-3 py-1 rounded-full border border-red-400/20">
+                    Error: {error.message || "Gagal menghubungi server"}
+                  </span>
+                </div>
+              )}
               {isLoading && (
                 <div className="flex items-start gap-3">
                   <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 bg-[#1a1a1a] border border-white/10 text-emerald-400">
