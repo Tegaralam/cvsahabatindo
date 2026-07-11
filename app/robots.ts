@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     // Uncomment and replace with your actual domain when deploying
-    // sitemap: 'https://your-domain.com/sitemap.xml',
+    sitemap: 'https://cvsahabatindo.vercel.app/sitemap.xml',
   }
 }
