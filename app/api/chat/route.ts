@@ -23,8 +23,8 @@ Informasi Produk Utama - Hybrid Generator Booster:
 
 Sektor yang dilayani meliputi: Manufaktur, Perkantoran, Pergudangan, Maritim, Hospitality (Hotel), dan Telekomunikasi.
 Kontak Perusahaan: 
-- Telepon/WA: +62 822-3105-1532
-- Email: cvsahabatindo@gmail.com
+- Telepon/WA: 082231051532
+- Email: [EMAIL_ADDRESS]
 - Lokasi: Sidoarjo, Jawa Timur — Indonesia
 
 Panduan Menjawab:

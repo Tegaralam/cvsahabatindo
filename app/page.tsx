@@ -586,7 +586,7 @@ function Footer() {
                                     <Phone className="w-4 h-4 text-emerald-400" />
                                     <div className="text-[10px] tracking-[0.28em] uppercase text-white/40">Telepon</div>
                                 </div>
-                                <div className="text-white font-medium group-hover:text-emerald-300 transition">+62 822-3105-1532</div>
+                                <div className="text-white font-medium group-hover:text-emerald-300 transition">+6282231051532</div>
                             </div>
                             <ArrowUpRight className="w-5 h-5 text-white/30 group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
                         </a>
