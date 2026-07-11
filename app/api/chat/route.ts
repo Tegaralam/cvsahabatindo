@@ -8,7 +8,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
 
   const result = streamText({
-    model: google('gemini-1.5-flash'),
+    model: google('gemini-3.5-flash'),
     system: `Anda adalah asisten AI resmi dari CV. Sahabat Indo Sukses (berbasis di Sidoarjo, Jawa Timur).
 Tugas Anda adalah membantu pengunjung website dan calon klien perusahaan.
 Gunakan nada yang profesional, sopan, informatif, dan meyakinkan layaknya Customer Service kelas Enterprise.

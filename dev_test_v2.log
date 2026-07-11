@@ -10,31 +10,5 @@
  ✓ Starting...
  ✓ Ready in 2.4s
  ○ Compiling /api/chat ...
- ✓ Compiled /api/chat in 5.2s (424 modules)
-[Error [AI_APICallError]: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.] {
-  cause: undefined,
-  url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse',
-  requestBodyValues: [Object],
-  statusCode: 401,
-  responseHeaders: [Object],
-  responseBody: '{\n' +
-    '  "error": {\n' +
-    '    "code": 401,\n' +
-    '    "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",\n' +
-    '    "status": "UNAUTHENTICATED",\n' +
-    '    "details": [\n' +
-    '      {\n' +
-    '        "@type": "type.googleapis.com/google.rpc.ErrorInfo",\n' +
-    '        "reason": "ACCESS_TOKEN_TYPE_UNSUPPORTED",\n' +
-    '        "metadata": {\n' +
-    '          "service": "generativelanguage.googleapis.com",\n' +
-    '          "method": "google.ai.generativelanguage.v1beta.GenerativeService.StreamGenerateContent"\n' +
-    '        }\n' +
-    '      }\n' +
-    '    ]\n' +
-    '  }\n' +
-    '}\n',
-  isRetryable: false,
-  data: [Object]
-}
- POST /api/chat 200 in 6672ms
+ ✓ Compiled /api/chat in 2.1s (424 modules)
+ POST /api/chat 200 in 15645ms

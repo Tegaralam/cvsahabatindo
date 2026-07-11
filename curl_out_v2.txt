@@ -18,14 +18,32 @@
 < content-type: text/event-stream
 < x-accel-buffering: no
 < x-vercel-ai-ui-message-stream: v1
-< Date: Sat, 11 Jul 2026 10:35:30 GMT
+< Date: Sat, 11 Jul 2026 11:12:08 GMT
 < Transfer-Encoding: chunked
 < 
 { [24 bytes data]
 * Connection #0 to host localhost left intact
 data: {"type":"start"}
 
-data: {"type":"error","errorText":"An error occurred."}
+data: {"type":"start-step"}
+
+data: {"type":"text-start","id":"0"}
+
+data: {"type":"text-delta","id":"0","delta":"Halo! Terima kasih telah menghubungi **CV. Sahabat Indo Sukses**. Layanan kami aktif dan siap membantu"}
+
+data: {"type":"text-delta","id":"0","delta":" Anda.\n\nKami adalah penyedia solusi inovasi energi hijau asal Sidoarjo, Jawa Timur. Salah satu solusi unggulan"}
+
+data: {"type":"text-delta","id":"0","delta":" kami adalah **Hybrid Generator Booster**, yang dirancang khusus untuk membantu sektor industri menghemat biaya operasional solar dan mengurangi emisi gas buang hingga"}
+
+data: {"type":"text-delta","id":"0","delta":" **37%**.\n\nAda yang bisa kami bantu hari ini? Jika Anda ingin berkonsultasi mengenai kebutuhan energi industri Anda,"}
+
+data: {"type":"text-delta","id":"0","delta":" silakan beri tahu kami."}
+
+data: {"type":"text-end","id":"0"}
+
+data: {"type":"finish-step"}
+
+data: {"type":"finish","finishReason":"stop"}
 
 data: [DONE]
 
