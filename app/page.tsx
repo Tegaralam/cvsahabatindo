@@ -80,17 +80,15 @@ function Nav({ onOpenPDF }: { onOpenPDF: () => void }) {
     return (
         <motion.nav
             initial={{ y: -40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-slate-50/70 backdrop-blur-2xl border-b border-slate-900/5' : 'bg-transparent'}`}
+            className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 border-b border-slate-900/5 shadow-sm' : 'bg-transparent'}`}
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
                 <a href="#" className="flex items-center gap-3 group">
-                    <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-700 flex items-center justify-center shadow-lg shadow-emerald-500/25">
-                        <Zap className="w-5 h-5 text-black" strokeWidth={2.5} />
-                        <div className="absolute inset-0 rounded-xl bg-emerald-400/40 blur-xl -z-10 group-hover:blur-2xl transition" />
+                    <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-slate-200">
+                        <Image src="/logo/logo1.jpeg" alt="Logo CV Sahabat Indo" fill className="object-cover" />
                     </div>
-                    <div className="flex flex-col leading-none">
-                        <span className="text-[10px] tracking-[0.28em] text-slate-900/50 uppercase">CV. Sahabat Indo</span>
-                        <span className="text-sm font-semibold tracking-wide">SUKSES</span>
+                    <div className="flex flex-col leading-none justify-center">
+                        <span className="text-sm font-bold tracking-wide text-slate-900 uppercase">CV. Sahabat Indo Sukses</span>
                     </div>
                 </a>
                 <div className="hidden md:flex items-center gap-10 text-sm text-slate-900/60">
@@ -156,7 +154,7 @@ function Hero() {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
                         </span>
-                        <span className="text-[11px] tracking-[0.28em] uppercase text-emerald-300 font-medium">Green Energy Engineering — Est. Indonesia</span>
+                        <span className="text-[11px] tracking-[0.28em] uppercase text-emerald-700 font-medium">Green Energy Engineering — Est. Indonesia</span>
                     </motion.div>
 
                     <h1 className="text-5xl md:text-7xl lg:text-[8.5rem] font-bold tracking-[-0.03em] leading-[0.92] max-w-6xl">
@@ -625,8 +623,8 @@ function Footer() {
 
                 <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
-                            <Zap className="w-4 h-4 text-black" strokeWidth={2.5} />
+                        <div className="relative w-8 h-8 rounded-lg overflow-hidden shadow-sm shadow-slate-200">
+                            <Image src="/logo/logo2.jpeg" alt="Logo CV Sahabat Indo" fill className="object-cover" />
                         </div>
                         <div className="text-sm">
                             <span className="text-slate-900 font-medium">CV. Sahabat Indo Sukses</span>
