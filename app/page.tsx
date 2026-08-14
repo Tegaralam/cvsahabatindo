@@ -684,7 +684,7 @@ const App = () => {
                 isOpen={isPDFOpen}
                 onClose={() => setIsPDFOpen(false)}
                 pdfUrl={language === 'en' ? '/api/pdf?file=DATA-SHEET-HGB' : '/api/pdf?file=DATA-SHEET-HGB'}
-                title="Hybrid Generator Booster Proposal"
+                title="Hybrid Generator Booster Brosur"
             />
         </main>
     )
