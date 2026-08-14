@@ -106,10 +106,10 @@ function Nav({ onOpenPDF }: { onOpenPDF: () => void }) {
                     >
                         {language === 'id' ? 'EN' : 'ID'}
                     </button>
-                    {/* <button onClick={onOpenPDF} className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-900/15 hover:border-emerald-600/60 hover:bg-emerald-600/5 transition text-sm">
+                    <button onClick={onOpenPDF} className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-900/15 hover:border-emerald-600/60 hover:bg-emerald-600/5 transition text-sm">
                         {t.nav.proposal}
                         <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
-                    </button> */}
+                    </button> 
                 </div>
             </div>
         </motion.nav>
@@ -683,7 +683,7 @@ const App = () => {
             <PDFModal
                 isOpen={isPDFOpen}
                 onClose={() => setIsPDFOpen(false)}
-                pdfUrl={language === 'en' ? '/api/pdf?file=HG50B (USA)' : '/api/pdf?file=HG50B'}
+                pdfUrl={language === 'en' ? '/api/pdf?file=DATA-SHEET-HGB' : '/api/pdf?file=DATA-SHEET-HGB'}
                 title="Hybrid Generator Booster Proposal"
             />
         </main>
