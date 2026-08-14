@@ -5,7 +5,7 @@ export const translations = {
       features: 'Keunggulan',
       product: 'Produk',
       contact: 'Kontak',
-      proposal: 'Preview Proposal',
+      proposal: 'Lihat Brosur',
     },
     hero: {
       title1: 'Energi industri',
@@ -125,7 +125,7 @@ export const translations = {
       features: 'Advantages',
       product: 'Product',
       contact: 'Contact',
-      proposal: 'Preview Proposal',
+      proposal: 'View Brochure',
     },
     hero: {
       title1: 'Smarter',
